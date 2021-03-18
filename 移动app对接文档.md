@@ -11,7 +11,7 @@
 * > **广告点击:**
 	* 当 B 站用户点击一个广告的素材(如标题、图片、按钮、视频)时，触发 点击事件。进入广告落地页后的点击行为不作为广告点击。
 
-* > 应用激活:**
+* > **应用激活:**
 	* 用户安装 APP 后首次联网;应用激活发生的时间即激活时间 
 
 ## 2.2 方案概述
@@ -53,14 +53,14 @@ http:/url/advstat/track/bili_feedback_url?trackid=__TRACKID__&crid=__CREATI VEID
 
 |字段名称|含义|格式和示例|替换|
 |-|-|-|-|
-|\_\_TRACKID__|用于追踪来源广告的追 踪ID|一段用于检索广告来源的随机 字符串，请保留原始值，用于 在 API2 中返回给 B 站。一般在 500 个字符之内。| <span style="color:red">是</span>|
-|\_\_ACCOUNTID__|B 站账户 ID，用于广告 主与自己平台上的账户 进行映射|数字字符串，一般在50个字符之内。|<span style="color:red">是</span>|
-|\_\_CAMPAIGNID__|B 站计划 ID，用于广告 主与自己平台上的账户 进行映射|数字字符串，一般在 50 个字符之内|<span style="color:red">是</span>|
-|\_\_UNITID__|B 站单元 ID，用于广告 主与自己平台上的账户 进行映射|数字字符串，一般在 50 个字 符之 内。|<span style="color:red">是</span>|
-|\_\_CREATIVEID__|B 站创意 ID，用于广告 主与自己平台上的创意 进行映射|数字字符串，一般在 50 个字符 之内。|<span style="color:red">是</span>|
-|\_\_OS__|客户端操作系统|数字,取 0~3。0 表示 Android， 1 表示 iOS，2 表示 Windows P hone，3 表示其他|<span style="color:red">是</span>|
+|\_\_TRACKID__|用于追踪来源广告的追 踪ID|一段用于检索广告来源的随机 字符串，请保留原始值，用于 在 API2 中返回给 B 站。一般在 500 个字符之内。| 是|
+|\_\_ACCOUNTID__|B 站账户 ID，用于广告 主与自己平台上的账户 进行映射|数字字符串，一般在50个字符之内。|是|
+|\_\_CAMPAIGNID__|B 站计划 ID，用于广告 主与自己平台上的账户 进行映射|数字字符串，一般在 50 个字符之内|是|
+|\_\_UNITID__|B 站单元 ID，用于广告 主与自己平台上的账户 进行映射|数字字符串，一般在 50 个字 符之 内。|是|
+|\_\_CREATIVEID__|B 站创意 ID，用于广告 主与自己平台上的创意 进行映射|数字字符串，一般在 50 个字符 之内。|是|
+|\_\_OS__|客户端操作系统|数字,取 0~3。0 表示 Android， 1 表示 iOS，2 表示 Windows P hone，3 表示其他|是|
 |\_\_IMEI__|用户终端的 IMEI|原始值为 15 位 IMEI，取其 32 位 MD5 摘要。|取到时替换|
-|\_\_CALLBACKURL__|回调地址(需要 urlencode)|字符串，需 urlencode编码，如 https://cm.bilibili.com/conv /api/conversion/ad/cb/v1?track_id=__track_id__ ,(回传链接 中 track_id 会替换成对应值)|<span style="color:red">是</span>|
+|\_\_CALLBACKURL__|回调地址(需要 urlencode)|字符串，需 urlencode编码，如 https://cm.bilibili.com/conv /api/conversion/ad/cb/v1?track_id=__track_id__ ,(回传链接 中 track_id 会替换成对应值)|是|
 |\_\_MAC1__|用户终端的 eth0 接口 的MAC地址|保留分隔符”:”的大写 MAC 地 址，取其32位MD5摘要|取到时替换|
 |\_\_IDFA__|iOS IDFA，适用于iOS 6 及以上|IDFA 原始值。32 位十六进制数 字+4 位连接符"-"。|取到时替换|
 |\_\_CAID__|中广协 CAID|因 CAID 有版本差别，需将版本 号(若无版本号请使用 0)和值用' _'拼接后替换,如果有多个用','拼 接(最多携带 2 个版本),然后用 U RLEncode;如 20201201_bfb4 05dc6c3b16e8b1ba40bcd3a7 c7c4%2c20210101_e8b1ba40 bcd3a7c7c4bfb405dc6c3b16|取到时替换|
@@ -70,21 +70,21 @@ http:/url/advstat/track/bili_feedback_url?trackid=__TRACKID__&crid=__CREATI VEID
 |\_\_IP__|投放系统服务器观察到 的用户远程 IP|A.B.C.D(4 段点分)，如 12.34.5 6.78|取到时替换|
 |\_\_UA__|数据上报终端设备的 User Agent|字符串，需 escape 转义，如 Mozilla%2F5.0(Linux%3BAndroid4.0.4%3BGT -I9220%20Build%2FIMM76D)|取到时替换|
 |\_\_MODEL__|手机型号|仅提供iPhone手机型号(如:IP hone 6s Plus)|取到时替换|
-|\_\_TS__|客户端触发监测的时间|UTC 时间戳，自1970年起的毫秒数|<span style="color:red">是</span>|
+|\_\_TS__|客户端触发监测的时间|UTC 时间戳，自1970年起的毫秒数|是|
 |\_\_SHOPID__|店铺 ID|数字|取到时替换|
 |\_\_UPMID__|视频UP主MID|数字|取到时替换|
 
-> <span style="color:red"> *注意:* 参数名广告主可自定义，并选择所需要的宏进行参数值的获取。如需要做激活回 传，“__TRACKID__”为必填宏，其值在 API2 回传中使用。</span>
+>  *注意:* 参数名广告主可自定义，并选择所需要的宏进行参数值的获取。如需要做激活回 传，"\_\_TRACKID__"为必填宏，其值在 API2 回传中使用。
 
-> 回调地址在 B 站投放后台创建创意时填写，作为向广告主<span style="color:red">发送点击事件</span>的固定地址。
-![](adimg1.png)
+> 回调地址在 B 站投放后台创建创意时填写，作为向广告主**发送点击事件**的固定地址。
+
+![](adimg2.png)
 
 > 一个 B 站广告服务端发出的 API1 请求案例:
 ```shell
 http://XXX.com/callback/bilibili?click_time=1519626045000&client_ip=10.23.60.13 8&device_type=2&imei=b72c9cbd09706fc9b686a6421b4875ca&track_id=WZNsJ EC1cc2r2QYqhdSWs307tAhHX4CRfff8NEm4N_ckdjdQ4kUll6446qhbDHbkMvfUSYw EM7S2G3I6dmRlAB8tSZ5g- M4_uHJmHKV8aTBMpYVIYKAuGl1ri7VXy5h__1retObLe- SMdcEBTWlXRF400fWayyMhKCfPJrkZl5c=_01
 ```
 * API1 若调用成功，服务端应返回 http code 200，表示接收成功。
-
 
 ## 2.4 转化回传接口(API2)介绍
 
@@ -105,9 +105,9 @@ https://cm.bilibili.com/conv/api/conversion/ad/cb/v1?conv_type=APP_FIRST_ACTI VE
 ```
 |回传字段|字段说明|字段取值(对广告应投放平台指标字段/是否支持 oCPX 优化)|必填|
 |:-|:-|:-|:-|
-|conv_type|转化类型|字符串，可选取值如下(都是大写)"APP_DOWNLOAD":APP 下载成功(安卓下载数 /支持“安卓下载”);"APP_INSTALL":APP 安装成功(安卓安装数/支 持“安卓安装”); "APP_FIRST_ACTIVE":APP 首次激活(安卓或 IOS 激活数/支持“应用激活”); "APP_ACTIVE":APP 激活但不是首次激活回传 这个值(安卓或 IOS 激活数/不支持); "FORM_SUBMIT":表单提交(表单提交数/支持 “表单提交”); "USER_REGISTER":用户注册(注册数/支持“用 户注册”);"ADD_TO_CART":加入购物车; "ORDER_PLACE":提交订单(提交订单数【电商 行业】/不支持); "USER_COST":完成付费行为(支付订单数/不支 持);"USER_RESERVE":用户参与某个活动预订; "RETENTION":用户留存(次日留存数/不支持); "APP_CALLUP":调起成功(调起成功数/不支 持); "FORM_USER_COST":教育完成表单付费行 为(表单付费/支持); “ACCOUNT_SUBSCRIBE”:账号关注|<span style="color:red">是</span>|
-|conv_time|转化事件发生时间|转化的时间。UTC 时间戳，自 1970 年起的毫秒数|<span style="color:red">是</span>|
-|track_id|用于追踪来源广告的追 踪ID|API1 中传给广告主的追踪 ID。|<span style="color:red">是</span>|
+|conv_type|转化类型|字符串，可选取值如下(都是大写)"APP_DOWNLOAD":APP 下载成功(安卓下载数 /支持“安卓下载”);"APP_INSTALL":APP 安装成功(安卓安装数/支 持“安卓安装”); "APP_FIRST_ACTIVE":APP 首次激活(安卓或 IOS 激活数/支持“应用激活”); "APP_ACTIVE":APP 激活但不是首次激活回传 这个值(安卓或 IOS 激活数/不支持); "FORM_SUBMIT":表单提交(表单提交数/支持 “表单提交”); "USER_REGISTER":用户注册(注册数/支持“用 户注册”);"ADD_TO_CART":加入购物车; "ORDER_PLACE":提交订单(提交订单数【电商 行业】/不支持); "USER_COST":完成付费行为(支付订单数/不支 持);"USER_RESERVE":用户参与某个活动预订; "RETENTION":用户留存(次日留存数/不支持); "APP_CALLUP":调起成功(调起成功数/不支 持); "FORM_USER_COST":教育完成表单付费行 为(表单付费/支持); “ACCOUNT_SUBSCRIBE”:账号关注|是|
+|conv_time|转化事件发生时间|转化的时间。UTC 时间戳，自 1970 年起的毫秒数|是|
+|track_id|用于追踪来源广告的追 踪ID|API1 中传给广告主的追踪 ID。|是|
 - 一个广告主服务端发出的 API2 请求案例:
 ```sh
 https://cm.bilibili.com/conv/api/conversion/ad/cb/v1?conv_type=APP_FIRST_ ACTIVE&conv_time=1529741853000&track_id=MkPeuXp4Hst6S74klNN wiC9moFW23Im4C45yglMsHep8rpZcuqoP-VGjNRaTRjyg1eypWOCg7NkBixUNYTpWD6KOYN_eKhqGffEKS5nkcg_aNa0gLHW4_ ZUFxgM0aIVXgx3OdkFrAPRcmL5M4bTkFw-9GUvYQxbgOVUth-wD9PQFEV- c_G8pSk2f4PrX8LuwPtrAe7B_M57tnXX1Vu_TUg%3D%3D_01
@@ -127,20 +127,21 @@ https://cm.bilibili.com/conv/api/conversion/ad/cb/v1?conv_type=APP_FIRST_ ACTIVE
 
 ## 1. Q .运营联调测试流程:
 
-1. 将配置好宏参数的落地页链接或监测链接填写至投放平台<span style="color:red">创意下落地页或监测链接位 置(若同一个监测链接也可以填写在 DMP 监测地址)下:
+1. 将配置好宏参数的落地页链接或监测链接填写至投放平台创意下落地页或监测链接位 置(若同一个监测链接也可以填写在 DMP 监测地址)下:
 ```sh
 http:/url/advstat/track/bili_feedback_url?trackid=__TRACKID__&crid=__CREATI VEID__&os=__OS__&mac=__MAC1__&idfa=__IDFA__&ip=__IP__&ua=__UA__&c lick_ts=__TS__
 ```
 
  2. 运营同学通过投放平台预览广告形式，联调测试通路是否正常回调
  
- 3. 在 DMP 后台查询预览数是否变化，与客户接收到的数据是否一致 <span style="color:red">(若不一致则与客户 确认回传转化时间是否存在多个，导致平台不完全依赖于设备号去重，从而造成多个转化出现)</span>
-	![](adimg2.png)
+ 3. 在 DMP 后台查询预览数是否变化，与客户接收到的数据是否一致 (若不一致则与客户 确认回传转化时间是否存在多个，导致平台不完全依赖于设备号去重，从而造成多个转化出现)
+
+![](adimg3.png)
 
 ## 2. Q:客户预览测试时，点击广告后回传链路的自查方法?
--  A: <span style="color:red">第一步</span>:检查是否收到 B 站服务器下发的点击请求，未收到则需要客户自行检查监 测链接在浏览器下是否可以正常访问;
--  <span style="color:red">第二步</span>:若收到点击请求，则校验是否收到设备号(其 中，安卓设备号 IMEI 的获取属于用户针对 B 站 APP 自愿打开访问设备权限问题，因此， 在测试时，需运营同学确保手机权限是否打开，同时，针对安卓投放，建议使用 OAID+IMEI 共同归因);
-- <span style="color:red">第三步:</span>确认调用 B 站接口链接和宏替换后的参数是否拼接正确(包括必带的 trackid、client_ip、conv_type、conv_time)
+-  A: 第一步:检查是否收到 B 站服务器下发的点击请求，未收到则需要客户自行检查监 测链接在浏览器下是否可以正常访问;
+-  第二步:若收到点击请求，则校验是否收到设备号(其 中，安卓设备号 IMEI 的获取属于用户针对 B 站 APP 自愿打开访问设备权限问题，因此， 在测试时，需运营同学确保手机权限是否打开，同时，针对安卓投放，建议使用 OAID+IMEI 共同归因);
+- 第三步:确认调用 B 站接口链接和宏替换后的参数是否拼接正确(包括必带的 trackid、client_ip、conv_type、conv_time)
 
 ## 3. Q:点击上报时没有 IMEI、OAID 或 IDFA 如何归因?
 - A: 在获取不到 IMEI、OAID 或 IDFA 的情况下，可以采用 IP+UA 来辅助归因，安卓
@@ -171,7 +172,7 @@ http:/url/advstat/track/bili_feedback_url?trackid=__TRACKID__&crid=__CREATI VEID
 - A:当点击监测链接唯一时，填写在投放平台创意监测位置和 DMP 监测地址位置都 可以(但建议填写在创意下监测链接位置);当点击监测链接不唯一时，填写在投放平台创 意监测位置下
 
 ## 12.Q:针对 ocpx“应用激活”优化目标，需要 conv_type 回传哪个转化类型?
-- A:需要回传<span style="color:red">"首次激活"</span>字段.
+- A:需要回传"首次激活"字段.
 
 ## 13. Q: 对于安卓 10 以上，设备号 OAID 的监测链接填在哪里能够获取到这个值?
 - A: 对于 OAID 的获取目前需统一填写在投放平台创意监测链接的位置

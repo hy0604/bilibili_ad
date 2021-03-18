@@ -12,7 +12,7 @@
 
 # 三、方案概述
 
-> 状态回传分为使用 Bilibili 自建站制作的落地页和使用其他外部建站工具落地页两种情况:
+> 状态回传分为使用 Bilibili**自建站制作的落地页**和使用**其他外部建站工具落地页**两种情况:
 >> 使用 b 站建站工具落地页得到的表单:
 1. 广告主上报自己在 b 站的账户 ID(account_id);
 2. b 站会生成并下发一个密钥给广告主(用户提供账户给到 B 站运营同学)
@@ -57,13 +57,13 @@ https://cm.bilibili.com/mgk/api/open_api/v1/clues/get?advertiser_id=376629 &ts=1
 - 处理方:b 站服务器
 - 请求地址: https://cm.bilibili.com/mgk/api/open_api/v1/clues/update
 - 请求参数:
+
 |字段|类型|描述|
 |:-|:-|:-|
 |track_id|string|追踪 id|
 |clue_state|number|线索状态(枚举值 1->有效 2->无效)|
 
 - 请求正文(可选，仅用来回传外部建站工具的详细数据):
-
 - ![](adimg5.png)
 
 - 回调示例:
